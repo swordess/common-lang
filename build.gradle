@@ -1,27 +1,29 @@
 buildscript {
-    ext.kotlin_version = '1.0.2'
-    ext.google_guava_version = '19.0'
+    ext.kotlin_version = '1.3.50'
+    ext.google_guava_version = '28.1-jre'
     ext.slf4j_api_version = '1.7.21'
 
-    repositories {
-        maven {
-            url 'http://dl.bintray.com/xingyuli/maven'
-        }
-        jcenter()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'org.swordess:swordess-gradle-config-plugin:1.0.0'
-    }
+//    repositories {
+//        maven {
+//            url 'http://dl.bintray.com/xingyuli/maven'
+//        }
+//    }
+//    dependencies {
+//        classpath 'org.swordess:swordess-gradle-config-plugin:1.0.0'
+//    }
 }
 
 plugins {
-    id 'org.standardout.versioneye' version '1.1.1'
-    id 'com.github.kt3k.coveralls' version '2.6.3'
-    id 'com.jfrog.bintray' version '1.5'
+    id "org.jetbrains.kotlin.jvm" version "1.3.50"
 }
 
-apply plugin: 'org.swordess.config'
+//plugins {
+    // id 'org.standardout.versioneye' version '1.1.1'
+    // id 'com.github.kt3k.coveralls' version '2.6.3'
+    // id 'com.jfrog.bintray' version '1.5'
+//}
+
+//apply plugin: 'org.swordess.config'
 
 group 'org.swordess.common'
 version '1.0.0'
@@ -29,7 +31,15 @@ version '1.0.0'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
+repositories {
+    jcenter()
+}
+
 dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib"
     compile "com.google.guava:guava:$google_guava_version"
     compile "org.slf4j:slf4j-api:$slf4j_api_version"
+
+    testCompile "junit:junit:4.12"
+    testCompile "org.jetbrains.kotlin:kotlin-test"
 }
