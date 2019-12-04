@@ -34,7 +34,9 @@ class ClassesTest {
 
     @Test
     fun testUnderPackageShouldFindMatchesIncludingNestedPackages() {
-        val found = Classes.underPackage("org.swordess.common.lang.test.foo", { Marker::class.java.isAssignableFrom(it.java) })
+        val found = Classes.underPackage("org.swordess.common.lang.test.foo") {
+            Marker::class.java.isAssignableFrom(it.java)
+        }
         assertEquals(2, found.size)
         assert(MyFoo::class in found && MyBar::class in found)
     }

@@ -62,9 +62,9 @@ class DirectoryWatcherTest {
 
         File(dir, "testCreate").createNewFile()
 
-        val thread = Thread({
+        val thread = Thread {
             while (!invoked) { Thread.sleep(1000) }
-        })
+        }
         thread.start()
         thread.join()
     }
@@ -81,9 +81,9 @@ class DirectoryWatcherTest {
 
         val waitFor = 30000
         var wait = 0
-        val thread = Thread({
+        val thread = Thread {
             while (wait < waitFor) { with(1000) { Thread.sleep(this@with.toLong()); wait += this@with } }
-        })
+        }
         thread.start()
         thread.join()
 

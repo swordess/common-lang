@@ -27,11 +27,11 @@ package org.swordess.common.lang
 fun String?.withPrefix(prefix: String) =
         if (this == null || isEmpty()) prefix else if (startsWith(prefix)) this else prefix + this
 
-fun String?.withoutPrefix(prefix: String) = if (this == null) "" else removePrefix(prefix)
+fun String?.withoutPrefix(prefix: String) = this?.removePrefix(prefix) ?: ""
 
 fun String?.withSuffix(suffix: String) =
         if (this == null || isEmpty()) suffix else if (endsWith(suffix)) this else this + suffix
 
-fun String?.withoutSuffix(suffix: String) = if (this == null) "" else removeSuffix(suffix)
+fun String?.withoutSuffix(suffix: String) = this?.removeSuffix(suffix) ?: ""
 
 fun Array<String>.filterNotEmpty() = if (isEmpty()) this else filter { it.isNotEmpty() }.toTypedArray()
