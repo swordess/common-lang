@@ -1,6 +1,6 @@
 buildscript {
     ext.kotlin_version = '1.3.50'
-    ext.google_guava_version = '28.1-jre'
+    ext.google_guava_version = '28.2-jre'
     ext.slf4j_api_version = '1.7.21'
 
     repositories {
